@@ -1,7 +1,14 @@
+using Microsoft.AspNetCore.Mvc.Routing;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient("swapi", client =>
+{
+    client.BaseAddress = new Uri("https://swapi.dev/api/");
+});
 
 var app = builder.Build();
 
