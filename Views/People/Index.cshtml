@@ -7,20 +7,22 @@
 
 @if (Model.Results?.Count()>0 )
 {
-   <div>
+   <div class="d-flex flex-row flex-wrap">
         @foreach (var person in Model.Results)
         {
-            <div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 item-container">
+                <div class="item">
                 <h4>@person.Name</h4>
-            <div>
-                <p>Mass: @person.Mass</p>
-                <p>Height: @person.Height</p>
-                <p>Born: @person.Birthyear</p>
+                <div class="item-traits">
+                    <p>Mass: @person.Mass</p>
+                    <p>Height: @person.Height</p>
+                    <p>Born: @person.Birthyear</p>
             </div>
         </div>
+    </div>    
     }
     </div>
-    <div>
+    <div class="d-flex flex-row justify-content-between p-2">
         @if (Model.Previous is not null)
         {
             <a asp-action="Index" asp-route-page="@Model.PreviousPageNum">Previous</a>
@@ -33,5 +35,5 @@
 }
 else 
 {
-    <p>There are no results for this page!</p>
+    <span></span>
 }
